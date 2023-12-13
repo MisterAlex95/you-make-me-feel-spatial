@@ -43,6 +43,7 @@ public class PlayerSphereController : MonoBehaviour
             currentRotationOrigin = spheres[sphereIndex].transform;
             transform.position = spheres[sphereIndex].transform.GetChild(0).position;
             transform.rotation = spheres[sphereIndex].transform.GetChild(0).rotation;
+            
             Vector3 cameraPos = transform.position;
             cameraPos.z = Camera.main.transform.position.z;
             Camera.main.transform.position = cameraPos;
