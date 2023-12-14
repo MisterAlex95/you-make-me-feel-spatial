@@ -182,7 +182,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1708404855}
-  - {fileID: 588717197}
   m_Father: {fileID: 980460019}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &152571991 stripped
@@ -308,6 +307,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1015095608}
     m_Modifications:
+    - target: {fileID: 1734202704642617825, guid: 0f82c693f6b673045aa0136990f4b541,
+        type: 3}
+      propertyPath: sprites.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1734202704642617825, guid: 0f82c693f6b673045aa0136990f4b541,
+        type: 3}
+      propertyPath: 'sprites.Array.data[0]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 914a58cd3ecaeab45943704c4b95ff9f,
+        type: 3}
     - target: {fileID: 3709762184023805981, guid: 0f82c693f6b673045aa0136990f4b541,
         type: 3}
       propertyPath: m_Color.b
@@ -658,92 +668,6 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
---- !u!1 &588717196
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 588717197}
-  - component: {fileID: 588717198}
-  m_Layer: 0
-  m_Name: Tree (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &588717197
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 588717196}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 0.13831748, w: 0.990388}
-  m_LocalPosition: {x: -1.447, y: 5.29, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 77821804}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 15.901}
---- !u!212 &588717198
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 588717196}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a9420241f07703e498bbf5bccffe3d17, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!1001 &702642697
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -752,6 +676,23 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1015095608}
     m_Modifications:
+    - target: {fileID: 1734202704642617825, guid: 0f82c693f6b673045aa0136990f4b541,
+        type: 3}
+      propertyPath: sprites.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1734202704642617825, guid: 0f82c693f6b673045aa0136990f4b541,
+        type: 3}
+      propertyPath: 'sprites.Array.data[0]'
+      value: 
+      objectReference: {fileID: 21300000, guid: b7ddaeae372baf446b33f457b3019cd2,
+        type: 3}
+    - target: {fileID: 1734202704642617825, guid: 0f82c693f6b673045aa0136990f4b541,
+        type: 3}
+      propertyPath: 'sprites.Array.data[1]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 44d25d8111558434d9c8017b43fbf850,
+        type: 3}
     - target: {fileID: 3709762184023805981, guid: 0f82c693f6b673045aa0136990f4b541,
         type: 3}
       propertyPath: m_Color.b
@@ -1311,6 +1252,35 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1015095608}
     m_Modifications:
+    - target: {fileID: 1734202704642617825, guid: 0f82c693f6b673045aa0136990f4b541,
+        type: 3}
+      propertyPath: sprites.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1734202704642617825, guid: 0f82c693f6b673045aa0136990f4b541,
+        type: 3}
+      propertyPath: 'sprites.Array.data[0]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 914a58cd3ecaeab45943704c4b95ff9f,
+        type: 3}
+    - target: {fileID: 1734202704642617825, guid: 0f82c693f6b673045aa0136990f4b541,
+        type: 3}
+      propertyPath: 'sprites.Array.data[1]'
+      value: 
+      objectReference: {fileID: 21300000, guid: a9420241f07703e498bbf5bccffe3d17,
+        type: 3}
+    - target: {fileID: 1734202704642617825, guid: 0f82c693f6b673045aa0136990f4b541,
+        type: 3}
+      propertyPath: 'sprites.Array.data[2]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 97cae21693535464a804705d07fbc4c9,
+        type: 3}
+    - target: {fileID: 1734202704642617825, guid: 0f82c693f6b673045aa0136990f4b541,
+        type: 3}
+      propertyPath: 'sprites.Array.data[3]'
+      value: 
+      objectReference: {fileID: 21300000, guid: ed989197fc12c5c439425d62456e5770,
+        type: 3}
     - target: {fileID: 3709762184023805981, guid: 0f82c693f6b673045aa0136990f4b541,
         type: 3}
       propertyPath: m_Color.b
@@ -1534,9 +1504,9 @@ PlayableDirector:
   - key: {fileID: 3676003528959126459, guid: 7beba8d9255edc64d8969a06719b8eb1, type: 2}
     value: {fileID: 1744177298}
   - key: {fileID: -2856073463691850023, guid: 7beba8d9255edc64d8969a06719b8eb1, type: 2}
-    value: {fileID: 164509206}
-  - key: {fileID: 2170164479141765149, guid: 7beba8d9255edc64d8969a06719b8eb1, type: 2}
     value: {fileID: 1622069385}
+  - key: {fileID: 2170164479141765149, guid: 7beba8d9255edc64d8969a06719b8eb1, type: 2}
+    value: {fileID: 164509206}
   - key: {fileID: -3032113565895593140, guid: 7beba8d9255edc64d8969a06719b8eb1, type: 2}
     value: {fileID: 842446504}
   - key: {fileID: 621328627879764780, guid: 7beba8d9255edc64d8969a06719b8eb1, type: 2}
