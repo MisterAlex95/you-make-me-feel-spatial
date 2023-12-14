@@ -19,6 +19,7 @@ public class SimonGame : Interactable
     [SerializeField] private GameObject spotYellow;
 
     [SerializeField] private List<COLOR> colorSequence = new();
+    [SerializeField] private List<COLOR> playerColorSequence = new();
 
     private int step = 0;
     private bool started = false;
@@ -29,6 +30,11 @@ public class SimonGame : Interactable
         if (IsActive && !started)
         {
             StartCoroutine(DoSequence());
+        }
+
+        if (IsActive && started)
+        {
+            response = step;
         }
     }
 
