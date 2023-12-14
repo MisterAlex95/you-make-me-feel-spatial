@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -113,5 +114,10 @@ public class PlayerSphereController : MonoBehaviour
     public void OnEndIntro()
     {
         introEnded = true;
+    }
+
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log(other.name);
     }
 }
