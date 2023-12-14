@@ -1,7 +1,9 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class WorldLetter : MonoBehaviour
 {
+    [SerializeField] private AudioSource audioSource;
     private NewErganeLetterObj _letter;
     public GameObject particles;
 
@@ -19,8 +21,9 @@ public class WorldLetter : MonoBehaviour
         {
             var transform1 = transform;
             Instantiate(particles, transform1.position, transform1.rotation, transform1.parent);
-            Destroy(this.gameObject);
+            audioSource.Play();
             NewErganeDictionary.Instance.UnlockLetter(this._letter);
+            Destroy(this.gameObject, audioSource.clip.length);
         }
     }
 }

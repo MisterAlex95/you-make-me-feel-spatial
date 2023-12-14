@@ -7,16 +7,12 @@ using UnityEngine.Playables;
 
 public class PlayerSphereController : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject environment;
+    [SerializeField] private GameObject environment;
     [SerializeField] private GameObject[] spheres;
     [SerializeField] private GameObject travelButton;
-    [SerializeField] private PlayableDirector playableDirector;
     [SerializeField] private PlayableDirector fuseDirector;
-    [SerializeField]
-    private int sphereIndex = 0;
-    [SerializeField]
-    private CutOutUiScript _cutout;
+    [SerializeField] private int sphereIndex = 0;
+    [SerializeField] private CutOutUiScript _cutout;
 
 
     private float _playerSpeed = 0.2f;
@@ -49,10 +45,10 @@ public class PlayerSphereController : MonoBehaviour
                 var rotation = playerPosition.rotation;
                 var position = playerPosition.position;
                 Vector3 cameraPos = position;
-        
+
                 transform.position = position;
                 transform.rotation = rotation;
-        
+
                 var cameraTransform = _camera.transform;
                 cameraPos.z = cameraTransform.position.z;
                 cameraTransform.position = cameraPos;
@@ -63,6 +59,7 @@ public class PlayerSphereController : MonoBehaviour
                     _cutout.FadeOut();
                     playerActive = true;
                 }
+
                 break;
             }
         }
@@ -74,14 +71,16 @@ public class PlayerSphereController : MonoBehaviour
         {
             return;
         }
-        
-        if (Input.GetKey(KeyCode.LeftArrow))
+
+        var moveX = Input.GetAxis("Horizontal");
+
+        if (moveX < -0.5)
         {
             // Move LEFT
             _spriteRenderer.flipX = true;
             environment.transform.RotateAround(spheres[sphereIndex].transform.position, Vector3.back, _playerSpeed);
         }
-        else if (Input.GetKey(KeyCode.RightArrow))
+        else if (moveX > 0.5)
         {
             // Move RIGHT
             _spriteRenderer.flipX = false;
@@ -97,6 +96,7 @@ public class PlayerSphereController : MonoBehaviour
             {
                 sphereIndex = 0;
             }
+
             StartCoroutine(ChangePlanet());
         }
     }
@@ -127,7 +127,7 @@ public class PlayerSphereController : MonoBehaviour
             canTravel = true;
         }
     }
-    
+
     public void OnTriggerExit2D(Collider2D other)
     {
         if (other.name == "Fuse")

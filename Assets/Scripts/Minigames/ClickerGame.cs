@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -11,6 +10,7 @@ public class ClickerGame : Interactable
     [SerializeField] private NewErganeLetterObj letterToWin;
     [SerializeField] private TMP_Text timerText;
     [SerializeField] private Sprite[] sprites;
+    [SerializeField] private AudioSource soundEffect;
 
     private int currentClick = 0;
     private float timer = 0f;
@@ -36,6 +36,7 @@ public class ClickerGame : Interactable
 
         currentClick++;
 
+        soundEffect.Play();
         var spriteIndex = (currentClick / (nbrOfClick / 10));
         _spriteRenderer.sprite = sprites[spriteIndex > 9 ? 9 : spriteIndex];
         _animator.SetTrigger("Hit");

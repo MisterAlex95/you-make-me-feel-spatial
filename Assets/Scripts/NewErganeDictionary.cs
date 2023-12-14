@@ -8,7 +8,6 @@ public class NewErganeDictionary : MonoBehaviour
     private static NewErganeDictionary _instance;
     [SerializeField] private TMP_Text letterCounter;
     [SerializeField] private GameObject codex;
-    [SerializeField] private NewErganeLetterObj ex;
 
     public event Action<NewErganeLetterObj> OnUnlockLetter;
 
@@ -63,11 +62,6 @@ public class NewErganeDictionary : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             codex.SetActive(!codex.activeSelf);
-        }
-
-        if (Input.GetKeyDown("a"))
-        {
-            this.UnlockLetter(ex);
         }
     }
 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public enum COLOR
 {
@@ -20,6 +21,7 @@ public class SimonGame : Interactable
 
     [SerializeField] private GameObject worldLetterPrefabs;
     [SerializeField] private NewErganeLetterObj letterToWin;
+    [SerializeField] private AudioSource errorSound;
 
     [SerializeField] private List<COLOR> colorSequence = new();
     [SerializeField] private List<COLOR> playerColorSequence = new();
@@ -83,6 +85,7 @@ public class SimonGame : Interactable
 
     private IEnumerator DoErrorSequence()
     {
+        errorSound.Play();
         isFailing = true;
         spotBlue.GetComponent<SpriteRenderer>().enabled = true;
         spotYellow.GetComponent<SpriteRenderer>().enabled = true;
@@ -124,15 +127,19 @@ public class SimonGame : Interactable
                 {
                     case COLOR.RED:
                         spotRed.GetComponent<SpriteRenderer>().enabled = true;
+                        spotRed.GetComponent<SimonColorGame>()?.PlaySound();
                         break;
                     case COLOR.BLUE:
                         spotBlue.GetComponent<SpriteRenderer>().enabled = true;
+                        spotRed.GetComponent<SimonColorGame>()?.PlaySound();
                         break;
                     case COLOR.GREEN:
                         spotGreen.GetComponent<SpriteRenderer>().enabled = true;
+                        spotRed.GetComponent<SimonColorGame>()?.PlaySound();
                         break;
                     case COLOR.YELLOW:
                         spotYellow.GetComponent<SpriteRenderer>().enabled = true;
+                        spotRed.GetComponent<SimonColorGame>()?.PlaySound();
                         break;
                     default:
                         throw new ArgumentOutOfRangeException();
