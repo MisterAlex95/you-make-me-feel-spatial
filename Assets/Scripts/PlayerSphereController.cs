@@ -15,9 +15,10 @@ public class PlayerSphereController : MonoBehaviour
     private CutOutUiScript _cutout;
 
 
-    private float _playerSpeed = 0.5f;
+    private float _playerSpeed = 0.1f;
     private Camera _camera;
     private bool playerActive = false;
+    private SpriteRenderer _spriteRenderer;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +27,7 @@ public class PlayerSphereController : MonoBehaviour
         spheres = GameObject.FindGameObjectsWithTag("Planet")
             .OrderBy(sphere => sphere.name)
             .ToArray();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
 
         SetPlayerPosition();
     }
@@ -70,11 +72,13 @@ public class PlayerSphereController : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             // Move LEFT
+            _spriteRenderer.flipX = true;
             environment.transform.RotateAround(spheres[sphereIndex].transform.position, Vector3.back, _playerSpeed);
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
             // Move RIGHT
+            _spriteRenderer.flipX = false;
             environment.transform.RotateAround(spheres[sphereIndex].transform.position, Vector3.forward, _playerSpeed);
         }
 
