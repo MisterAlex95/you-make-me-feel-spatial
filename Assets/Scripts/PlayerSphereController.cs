@@ -1,53 +1,107 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PlayerSphereController : MonoBehaviour
 {
     [SerializeField]
     private GameObject environment;
-
     [SerializeField] private GameObject[] spheres;
-
     [SerializeField] private Transform currentRotationOrigin;
-
     [SerializeField]
     private int sphereIndex = 0;
-    private float speed = 0.5f;
+    [SerializeField]
+    private CutOutUiScript _cutout;
+
+
+    private float _playerSpeed = 0.5f;
+    private Camera _camera;
+    private bool playerActive = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        currentRotationOrigin = spheres[sphereIndex].transform;
+        _camera = Camera.main;
+        spheres = GameObject.FindGameObjectsWithTag("Planet")
+            .OrderBy(sphere => sphere.name)
+            .ToArray();
+
+        SetPlayerPosition();
     }
 
-    // Update is called once per frame
-    void Update()
+    void SetPlayerPosition()
     {
+        for (var i = 0; i < spheres[sphereIndex].transform.childCount; i++)
+        {
+            var go = spheres[sphereIndex].transform.GetChild(i).gameObject;
+            if (go.CompareTag("PlayerSpawn"))
+            {
+                Transform playerPosition = go.transform;
+                var rotation = playerPosition.rotation;
+                var position = playerPosition.position;
+                Vector3 cameraPos = position;
+        
+                transform.position = position;
+                transform.rotation = rotation;
+        
+                var cameraTransform = _camera.transform;
+                cameraPos.z = cameraTransform.position.z;
+                cameraTransform.position = cameraPos;
+                cameraTransform.rotation = rotation;
+
+                if (!playerActive)
+                {
+                    _cutout.FadeOut();
+                    playerActive = true;
+                }
+                break;
+            }
+        }
+    }
+
+    void PlayerControl()
+    {
+        if (!playerActive)
+        {
+            return;
+        }
+        
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            environment.transform.RotateAround(spheres[sphereIndex].transform.position, Vector3.back, speed);
+            // Move LEFT
+            environment.transform.RotateAround(spheres[sphereIndex].transform.position, Vector3.back, _playerSpeed);
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
-            environment.transform.RotateAround(spheres[sphereIndex].transform.position, Vector3.forward, speed);
+            // Move RIGHT
+            environment.transform.RotateAround(spheres[sphereIndex].transform.position, Vector3.forward, _playerSpeed);
         }
 
+        // Switch planet
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
+            playerActive = false;
             sphereIndex++;
             if (sphereIndex == spheres.Length)
             {
                 sphereIndex = 0;
             }
-            currentRotationOrigin = spheres[sphereIndex].transform;
-            transform.position = spheres[sphereIndex].transform.GetChild(0).position;
-            transform.rotation = spheres[sphereIndex].transform.GetChild(0).rotation;
-            
-            Vector3 cameraPos = transform.position;
-            cameraPos.z = Camera.main.transform.position.z;
-            Camera.main.transform.position = cameraPos;
-            Camera.main.transform.rotation = transform.rotation;
+            StartCoroutine(ChangePlanet());
         }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        PlayerControl();
+    }
+
+    IEnumerator ChangePlanet()
+    {
+        _cutout.FadeIn();
+        yield return new WaitForSeconds(1);
+        SetPlayerPosition();
+        _cutout.FadeOut();
     }
 }
