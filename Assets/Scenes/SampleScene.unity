@@ -14830,8 +14830,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b5908350e9762714f9539111dba63be8, type: 3}
   - {fileID: 8300000, guid: 0943f3c5b95b0774fb50ab3cf19a1484, type: 3}
   - {fileID: 8300000, guid: 033f0d4743b9b5341aa582f0bd5960d1, type: 3}
-  - {fileID: 8300000, guid: 4d0c53f4065372b4d9c36bd8aca4d384, type: 3}
   - {fileID: 8300000, guid: 902ce7f406245b34c87735df4c38ec24, type: 3}
+  - {fileID: 8300000, guid: 4d0c53f4065372b4d9c36bd8aca4d384, type: 3}
   spheres: []
   _audioSource: {fileID: 2133731769}
   currentPlanet: 0
@@ -14863,7 +14863,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: b5908350e9762714f9539111dba63be8, type: 3}
   m_Resource: {fileID: 8300000, guid: b5908350e9762714f9539111dba63be8, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 1
   Mute: 0
