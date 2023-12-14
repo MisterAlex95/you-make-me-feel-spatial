@@ -21,7 +21,6 @@ public class ClickerGame : MonoBehaviour
     private void Start()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
-        _spriteRenderer.sprite = sprites[0];
         _animator = GetComponent<Animator>();
         Reset();
     }
@@ -54,6 +53,7 @@ public class ClickerGame : MonoBehaviour
         started = false;
         timer = durationMax;
         timerText.text = "";
+        _spriteRenderer.sprite = sprites[0];
     }
 
     private void Update()
