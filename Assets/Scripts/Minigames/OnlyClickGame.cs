@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class OnlyClickGame : MonoBehaviour
+public class OnlyClickGame : Interactable
 {
     [SerializeField] private GameObject worldLetterPrefabs;
     [SerializeField] private NewErganeLetterObj letterToWin;
@@ -8,6 +8,8 @@ public class OnlyClickGame : MonoBehaviour
 
     private void OnMouseUp()
     {
+        if (this.isActive == false) return;
+
         var go = Instantiate(worldLetterPrefabs, transform.parent);
         go.transform.position = spawnPosition?.position ?? this.transform.position;
         if (go.TryGetComponent<WorldLetter>(out var worldLetter))

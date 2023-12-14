@@ -1,9 +1,8 @@
-using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
 
-public class ClickerGame : MonoBehaviour
+public class ClickerGame : Interactable
 {
     [SerializeField] private int nbrOfClick = 10;
     [SerializeField] private float durationMax = 5f;
@@ -27,6 +26,8 @@ public class ClickerGame : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (this.isActive == false) return;
+
         if (!started)
         {
             StartCoroutine(StartTimerCoroutine());
