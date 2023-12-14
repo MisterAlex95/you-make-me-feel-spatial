@@ -13,17 +13,15 @@ public class PlanetPopulate : MonoBehaviour
         for (int i = 0; i < 360; i += 0)
         {
             var go = Instantiate(populateItem, transform);
-            var randomScale = Random.Range(0.15f, 0.25f);
+            var randomScale = Random.Range(0.15f, 0.3f);
             var v = go.transform.position;
             v.z = 0.5f - randomScale;
-            v.y -= (0.25f - randomScale);
+            v.y -= 0.8f;
             go.transform.position = v;
             go.transform.localScale = new Vector3(randomScale, randomScale);
             go.transform.RotateAround(transform.position, Vector3.forward, i);
             var randomSprite = Random.Range(0, sprites.Length);
             go.GetComponent<SpriteRenderer>().sprite = sprites[randomSprite];
-
-            var range = 1 / (0.25f / randomScale);
 
             if (randomScale >= 0.15f && randomScale < 0.18f)
             {
@@ -36,6 +34,11 @@ public class PlanetPopulate : MonoBehaviour
             if (randomScale >= 0.22f)
             {
                 go.GetComponent<SpriteRenderer>().color = new Color(0.8f , 0.8f, 0.8f);
+            }
+
+            if (Random.Range(0, 2) == 1)
+            {
+                go.GetComponent<SpriteRenderer>().flipX = true;
             }
             
             i += Random.Range(15, 20);
