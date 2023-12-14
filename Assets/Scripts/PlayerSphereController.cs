@@ -9,6 +9,7 @@ public class PlayerSphereController : MonoBehaviour
     [SerializeField]
     private GameObject environment;
     [SerializeField] private GameObject[] spheres;
+    [SerializeField] private GameObject travelButton;
     [SerializeField] private Transform currentRotationOrigin;
     [SerializeField]
     private int sphereIndex = 0;
@@ -21,6 +22,7 @@ public class PlayerSphereController : MonoBehaviour
     private bool playerActive = false;
     private SpriteRenderer _spriteRenderer;
     private bool introEnded = false;
+    private bool canTravel = false;
 
     // Start is called before the first frame update
     void Start()
@@ -85,7 +87,7 @@ public class PlayerSphereController : MonoBehaviour
         }
 
         // Switch planet
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.Space) && canTravel)
         {
             playerActive = false;
             sphereIndex++;
@@ -118,6 +120,19 @@ public class PlayerSphereController : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(other.name);
+        if (other.name == "Fuse")
+        {
+            travelButton.gameObject.SetActive(true);
+            canTravel = true;
+        }
+    }
+    
+    public void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.name == "Fuse")
+        {
+            travelButton.gameObject.SetActive(false);
+            canTravel = false;
+        }
     }
 }
