@@ -10,13 +10,19 @@ public class ClickerGame : MonoBehaviour
     [SerializeField] private GameObject worldLetterPrefabs;
     [SerializeField] private NewErganeLetterObj letterToWin;
     [SerializeField] private TMP_Text timerText;
+    [SerializeField] private Sprite[] sprites;
 
     private int currentClick = 0;
     private float timer = 0f;
     private bool started = false;
+    private SpriteRenderer _spriteRenderer;
+    private Animator _animator;
 
     private void Start()
     {
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _spriteRenderer.sprite = sprites[0];
+        _animator = GetComponent<Animator>();
         Reset();
     }
 
@@ -28,6 +34,11 @@ public class ClickerGame : MonoBehaviour
         }
 
         currentClick++;
+        if (currentClick < 10)
+        {
+            _spriteRenderer.sprite = sprites[currentClick];
+            _animator.SetTrigger("Hit");
+        }
     }
 
     private IEnumerator StartTimerCoroutine()
