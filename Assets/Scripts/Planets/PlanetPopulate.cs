@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlanetPopulate : MonoBehaviour
 {
     [SerializeField] private Sprite[] sprites;
     [SerializeField] private GameObject populateItem;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,29 +23,25 @@ public class PlanetPopulate : MonoBehaviour
 
             if (randomScale >= 0.15f && randomScale < 0.18f)
             {
-                go.GetComponent<SpriteRenderer>().color = new Color(0.35f , 0.35f, 0.35f);
+                go.GetComponent<SpriteRenderer>().color = new Color(0.35f, 0.35f, 0.35f);
             }
+
             if (randomScale >= 0.18f && randomScale < 0.22f)
             {
-                go.GetComponent<SpriteRenderer>().color = new Color(0.6f , 0.6f, 0.6f);
+                go.GetComponent<SpriteRenderer>().color = new Color(0.6f, 0.6f, 0.6f);
             }
+
             if (randomScale >= 0.22f)
             {
-                go.GetComponent<SpriteRenderer>().color = new Color(0.8f , 0.8f, 0.8f);
+                go.GetComponent<SpriteRenderer>().color = new Color(0.8f, 0.8f, 0.8f);
             }
 
             if (Random.Range(0, 2) == 1)
             {
                 go.GetComponent<SpriteRenderer>().flipX = true;
             }
-            
+
             i += Random.Range(15, 20);
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
