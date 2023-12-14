@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -34,11 +35,10 @@ public class ClickerGame : Interactable
         }
 
         currentClick++;
-        if (currentClick < 10)
-        {
-            _spriteRenderer.sprite = sprites[currentClick];
-            _animator.SetTrigger("Hit");
-        }
+
+        var spriteIndex = (currentClick / (nbrOfClick / 10));
+        _spriteRenderer.sprite = sprites[spriteIndex > 9 ? 9 : spriteIndex];
+        _animator.SetTrigger("Hit");
     }
 
     private IEnumerator StartTimerCoroutine()

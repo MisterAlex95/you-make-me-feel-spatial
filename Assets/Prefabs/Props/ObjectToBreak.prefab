@@ -36,8 +36,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 1}
-  m_SizeDelta: {x: 2.59, y: 1}
+  m_AnchoredPosition: {x: 0.059, y: 0.8055}
+  m_SizeDelta: {x: 1, y: 0.371}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &151983934212202073
 Canvas:
@@ -114,6 +114,7 @@ GameObject:
   - component: {fileID: 6720087519726950557}
   - component: {fileID: 733654897931318860}
   - component: {fileID: 8645782842159528158}
+  - component: {fileID: 4821588532720630843}
   m_Layer: 0
   m_Name: ObjectToBreak
   m_TagString: Interactable
@@ -132,7 +133,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -10.146, y: 17.901, z: -0.0000333786}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7533153609649222016}
   m_Father: {fileID: 0}
@@ -180,8 +181,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6,
-    type: 3}
+  m_Sprite: {fileID: 1586846620, guid: 4cfe4a2345742e949b044654f6bacfff, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -204,13 +204,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b057bdbc645db6544abb38a5c46cce45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nbrOfClick: 10
-  durationMax: 5
+  nbrOfClick: 20
+  durationMax: 3
   worldLetterPrefabs: {fileID: 1067140684952213352, guid: c0294e62f1dfc6040bef4a58cbf9d56c,
     type: 3}
-  letterToWin: {fileID: 11400000, guid: 172ae11ed08d1b64781d69c6bd610422, type: 2}
+  letterToWin: {fileID: 11400000, guid: 65c2fa84ba43f2c4488175159b12c3d6, type: 2}
   timerText: {fileID: 3467369964503460769}
-  sprites: []
+  sprites:
+  - {fileID: 1586846620, guid: 4cfe4a2345742e949b044654f6bacfff, type: 3}
+  - {fileID: 154439061, guid: 4cfe4a2345742e949b044654f6bacfff, type: 3}
+  - {fileID: -1946545657, guid: 4cfe4a2345742e949b044654f6bacfff, type: 3}
+  - {fileID: 519399158, guid: 4cfe4a2345742e949b044654f6bacfff, type: 3}
+  - {fileID: -1302775004, guid: 4cfe4a2345742e949b044654f6bacfff, type: 3}
+  - {fileID: 1472396657, guid: 4cfe4a2345742e949b044654f6bacfff, type: 3}
+  - {fileID: -2021990404, guid: 4cfe4a2345742e949b044654f6bacfff, type: 3}
+  - {fileID: 1875276926, guid: 4cfe4a2345742e949b044654f6bacfff, type: 3}
+  - {fileID: 996710832, guid: 4cfe4a2345742e949b044654f6bacfff, type: 3}
+  - {fileID: -1745467742, guid: 4cfe4a2345742e949b044654f6bacfff, type: 3}
 --- !u!61 &8645782842159528158
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -245,18 +255,40 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.014341831, y: 0.28626823}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 1.0002443, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.8186133, y: 2.153441}
   m_EdgeRadius: 0
+--- !u!95 &4821588532720630843
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7831303601719360368}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c19648a7eafdf2d45a249290a850fc9e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8286158347196518230
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,7 +323,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0.000000059604645, y: 0.000000059604645}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3231045511058961397
@@ -387,7 +419,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -0.0077667236, y: 1.0027905, z: -0.0064077377, w: 0.9953289}
+  m_margin: {x: -0.0077667236, y: 0.0024051673, z: -0.0064077377, w: -0.0050563817}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
