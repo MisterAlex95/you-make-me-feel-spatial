@@ -19,6 +19,7 @@ public class PlayerSphereController : MonoBehaviour
     private Camera _camera;
     private bool playerActive = false;
     private SpriteRenderer _spriteRenderer;
+    private bool introEnded = false;
 
     // Start is called before the first frame update
     void Start()
@@ -64,7 +65,7 @@ public class PlayerSphereController : MonoBehaviour
 
     void PlayerControl()
     {
-        if (!playerActive)
+        if (!playerActive || !introEnded)
         {
             return;
         }
@@ -107,5 +108,11 @@ public class PlayerSphereController : MonoBehaviour
         yield return new WaitForSeconds(1);
         SetPlayerPosition();
         _cutout.FadeOut();
+    }
+
+    public void OnEndIntro()
+    {
+        Debug.Log("Hey");
+        introEnded = true;
     }
 }
