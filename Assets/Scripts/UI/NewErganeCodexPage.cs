@@ -3,20 +3,15 @@ using UnityEngine.UI;
 
 namespace UI
 {
-    public class NewErganeDictionaryPage : MonoBehaviour
+    public class NewErganeCodexPage : MonoBehaviour
     {
         [SerializeField] private GameObject lexiquePage;
         [SerializeField] private GameObject letterPage;
         [SerializeField] private GameObject lexiqueLetterPrefab;
 
-        [SerializeField] private NewErganeLetterObj ex;
-
         private void Start()
         {
             NewErganeDictionary.Instance.OnUnlockLetter += AddLetterToDictionary;
-            this.AddLetterToDictionary(ex);
-            this.letterPage.SetActive(false);
-            this.lexiquePage.SetActive(false);
         }
 
         private void AddLetterToDictionary(NewErganeLetterObj letter)

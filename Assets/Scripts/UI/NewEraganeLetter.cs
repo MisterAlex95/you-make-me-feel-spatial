@@ -5,12 +5,12 @@ namespace UI
 {
     public class NewEraganeLetter : MonoBehaviour, IPointerClickHandler
     {
-        private NewErganeDictionaryPage _newErganeDictionaryPage;
+        private NewErganeCodexPage _newErganeCodexPage;
         private NewErganeLetterObj letter;
 
-        public void SetNewErganeDictionaryPage(NewErganeDictionaryPage dico)
+        public void SetNewErganeDictionaryPage(NewErganeCodexPage dico)
         {
-            this._newErganeDictionaryPage = dico;
+            this._newErganeCodexPage = dico;
         }
 
         public void SetLetter(NewErganeLetterObj letter)
@@ -20,7 +20,7 @@ namespace UI
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            _newErganeDictionaryPage.GoToLetter(this.letter);
+            _newErganeCodexPage.GoToLetter(this.letter);
         }
     }
 }

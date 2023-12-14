@@ -1,10 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class NewErganeDictionary : MonoBehaviour
 {
     private static NewErganeDictionary _instance;
+    [SerializeField] private TMP_Text letterCounter;
+    [SerializeField] private GameObject codex;
+    [SerializeField] private NewErganeLetterObj ex;
+
     public event Action<NewErganeLetterObj> OnUnlockLetter;
 
     private List<NewErganeLetterObj> _language = new();
@@ -48,7 +53,21 @@ public class NewErganeDictionary : MonoBehaviour
         if (this.IsLetterExist(letter)) return;
         this._language.Add(letter);
         OnUnlockLetter?.Invoke(letter);
+        letterCounter.text = (this._language.Count + "/22");
     }
 
-    public bool IsLetterExist(NewErganeLetterObj letter) => this._language.FindIndex((l) => l.name == letter.letter) > 0;
+    public bool IsLetterExist(NewErganeLetterObj letter) => this._language.FindIndex((l) => l.letter == letter.letter) >= 0;
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            codex.SetActive(!codex.activeSelf);
+        }
+
+        if (Input.GetKeyDown("a"))
+        {
+            this.UnlockLetter(ex);
+        }
+    }
 }
