@@ -18,7 +18,7 @@ public class PlayerSphereController : MonoBehaviour
     [SerializeField] private GameObject alienDialogs;
 
 
-    private float _playerSpeed = 0.2f;
+    public float _playerSpeed = 15f;
     private Camera _camera;
     private bool playerActive = false;
     private SpriteRenderer _spriteRenderer;
@@ -82,13 +82,13 @@ public class PlayerSphereController : MonoBehaviour
         {
             // Move LEFT
             _spriteRenderer.flipX = true;
-            environment.transform.RotateAround(spheres[sphereIndex].transform.position, Vector3.back, _playerSpeed);
+            environment.transform.RotateAround(spheres[sphereIndex].transform.position, Vector3.back, _playerSpeed * Time.deltaTime);
         }
         else if (moveX > 0)
         {
             // Move RIGHT
             _spriteRenderer.flipX = false;
-            environment.transform.RotateAround(spheres[sphereIndex].transform.position, Vector3.forward, _playerSpeed);
+            environment.transform.RotateAround(spheres[sphereIndex].transform.position, Vector3.forward, _playerSpeed * Time.deltaTime);
         }
 
         // Switch planet

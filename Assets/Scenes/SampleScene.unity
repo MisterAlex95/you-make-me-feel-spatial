@@ -17456,6 +17456,11 @@ PrefabInstance:
       objectReference: {fileID: 1015095607}
     - target: {fileID: 7221842906457940178, guid: 90d1db3756229c34ca3a98bcaff4087a,
         type: 3}
+      propertyPath: _playerSpeed
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 7221842906457940178, guid: 90d1db3756229c34ca3a98bcaff4087a,
+        type: 3}
       propertyPath: alienDialogs
       value: 
       objectReference: {fileID: 2052241709}
