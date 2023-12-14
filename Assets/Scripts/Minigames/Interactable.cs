@@ -1,13 +1,11 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
-[RequireComponent(typeof(Collider2D))]
 public abstract class Interactable : MonoBehaviour
 {
-    protected bool isActive = false;
+    protected bool IsActive = false;
 
     public void IsTriggerable(bool state)
     {
-        isActive = state;
+        IsActive = state;
     }
 }

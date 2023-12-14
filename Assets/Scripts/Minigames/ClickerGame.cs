@@ -26,7 +26,7 @@ public class ClickerGame : Interactable
 
     private void OnMouseDown()
     {
-        if (this.isActive == false) return;
+        if (!this.IsActive) return;
 
         if (!started)
         {

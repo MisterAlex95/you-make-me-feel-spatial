@@ -8,7 +8,7 @@ public class OnlyClickGame : Interactable
 
     private void OnMouseUp()
     {
-        if (this.isActive == false) return;
+        if (!this.IsActive) return;
 
         var go = Instantiate(worldLetterPrefabs, transform.parent);
         go.transform.position = spawnPosition?.position ?? this.transform.position;

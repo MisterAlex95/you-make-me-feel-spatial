@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class CanInteractWith : MonoBehaviour
 {
-    [SerializeField] GameObject interactionIndicator;
+    [SerializeField] private GameObject interactionIndicator;
 
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.CompareTag("Interactable"))
         {
             interactionIndicator.SetActive(true);
-            if (interactionIndicator.TryGetComponent<Interactable>(out var interactable))
+            if (col.TryGetComponent<Interactable>(out var interactable))
             {
                 interactable.IsTriggerable(true);
             }
@@ -21,7 +21,7 @@ public class CanInteractWith : MonoBehaviour
         if (col.CompareTag("Interactable"))
         {
             interactionIndicator.SetActive(false);
-            if (interactionIndicator.TryGetComponent<Interactable>(out var interactable))
+            if (col.TryGetComponent<Interactable>(out var interactable))
             {
                 interactable.IsTriggerable(false);
             }
