@@ -20,7 +20,7 @@ public class NewErganeDictionary : MonoBehaviour
         {
             if (_instance == null)
             {
-                _instance = FindObjectOfType<NewErganeDictionary>();
+                _instance = FindAnyObjectByType<NewErganeDictionary>();
 
                 if (_instance == null)
                 {
