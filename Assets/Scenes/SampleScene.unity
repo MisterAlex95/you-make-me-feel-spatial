@@ -187,6 +187,12 @@ Transform:
   - {fileID: 1561757813}
   m_Father: {fileID: 980460019}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &152571991 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5019564694948223206, guid: b559cbb812db9ca448fc0b7300dacced,
+    type: 3}
+  m_PrefabInstance: {fileID: 2009656535}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &212445489
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7001,10 +7007,20 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 821952932}
     m_Modifications:
+    - target: {fileID: 5019564694948223206, guid: b559cbb812db9ca448fc0b7300dacced,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5966072843148604045, guid: b559cbb812db9ca448fc0b7300dacced,
         type: 3}
       propertyPath: m_Name
       value: Dictionnary
+      objectReference: {fileID: 0}
+    - target: {fileID: 6435226992906078786, guid: b559cbb812db9ca448fc0b7300dacced,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8999386750285843320, guid: b559cbb812db9ca448fc0b7300dacced,
         type: 3}
@@ -7117,12 +7133,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 2009656535}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2009656537 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6435226992906078786, guid: b559cbb812db9ca448fc0b7300dacced,
-    type: 3}
-  m_PrefabInstance: {fileID: 2009656535}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2009656538 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5426286248769426818, guid: b559cbb812db9ca448fc0b7300dacced,
@@ -7153,7 +7163,7 @@ PrefabInstance:
         type: 3}
       propertyPath: codex
       value: 
-      objectReference: {fileID: 2009656537}
+      objectReference: {fileID: 152571991}
     - target: {fileID: 1495386848835429230, guid: b4474f7a01d995c4380359af1904d1a4,
         type: 3}
       propertyPath: letterCounter

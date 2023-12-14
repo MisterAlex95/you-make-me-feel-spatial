@@ -15,7 +15,6 @@ public class WorldLetter : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("COLLIDER");
         if (other.CompareTag("Player"))
         {
             var transform1 = transform;
