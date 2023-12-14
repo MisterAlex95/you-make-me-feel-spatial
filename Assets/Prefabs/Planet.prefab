@@ -126,6 +126,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4969112680165029582}
+  - component: {fileID: 1734202704642617825}
   m_Layer: 0
   m_Name: Planet
   m_TagString: Planet
@@ -151,6 +152,21 @@ Transform:
   - {fileID: 4830854466639761701}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1734202704642617825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7342069737620503961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346fae7093cfc9540b68d55e610ba2a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites: []
+  populateItem: {fileID: 6576275912449142976, guid: 5d94526c4e0a52f438788ff09c941d49,
+    type: 3}
 --- !u!1 &8155911145867987312
 GameObject:
   m_ObjectHideFlags: 0

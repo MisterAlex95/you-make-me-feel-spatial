@@ -26,13 +26,13 @@ public class CutOutUiScript : MonoBehaviour
 
     public void FadeIn()
     {
-        _rect.sizeDelta = new Vector2(5000, 5000);
-        _animator.SetTrigger("FadeIn");
+        GetComponent<RectTransform>().sizeDelta = new Vector2(5000, 5000);
+        GetComponent<Animator>().SetTrigger("FadeIn");
     }
 
     public void FadeOut()
     {
-        _rect.sizeDelta = new Vector2(0, 0);
-        _animator.SetTrigger("FadeOut");
+        GetComponent<RectTransform>().sizeDelta = new Vector2(0, 0);
+        GetComponent<Animator>().SetTrigger("FadeOut");
     }
 }

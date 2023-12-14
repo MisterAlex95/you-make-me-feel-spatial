@@ -112,7 +112,6 @@ public class PlayerSphereController : MonoBehaviour
 
     public void OnEndIntro()
     {
-        Debug.Log("Hey");
         introEnded = true;
     }
 }
