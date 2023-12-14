@@ -24,18 +24,19 @@ public class SimonGame : Interactable
     [SerializeField] private List<COLOR> colorSequence = new();
     [SerializeField] private List<COLOR> playerColorSequence = new();
 
+    private bool isFailing = false;
     private int step = 0;
     private bool started = false;
     private int response = -1;
 
     private void Update()
     {
-        if (IsActive && !started)
+        if (IsActive && !started && !isFailing)
         {
             StartCoroutine(DoSequence());
         }
 
-        if (IsActive && started)
+        if (IsActive && started && !isFailing)
         {
             if (playerColorSequence.Count == step)
             {
@@ -48,6 +49,7 @@ public class SimonGame : Interactable
                         step = 0;
                         response = -1;
                         StopCoroutine(DoSequence());
+                        StartCoroutine(DoErrorSequence());
                         started = false;
                         break;
                     }
@@ -78,6 +80,33 @@ public class SimonGame : Interactable
     {
         playerColorSequence.Add(color);
     }
+
+    private IEnumerator DoErrorSequence()
+    {
+        isFailing = true;
+        spotBlue.GetComponent<SpriteRenderer>().enabled = true;
+        spotYellow.GetComponent<SpriteRenderer>().enabled = true;
+        spotRed.GetComponent<SpriteRenderer>().enabled = true;
+        spotGreen.GetComponent<SpriteRenderer>().enabled = true;
+        yield return new WaitForSeconds(.5f);
+        spotBlue.GetComponent<SpriteRenderer>().enabled = false;
+        spotYellow.GetComponent<SpriteRenderer>().enabled = false;
+        spotRed.GetComponent<SpriteRenderer>().enabled = false;
+        spotGreen.GetComponent<SpriteRenderer>().enabled = false;
+        yield return new WaitForSeconds(.5f);
+        spotBlue.GetComponent<SpriteRenderer>().enabled = true;
+        spotYellow.GetComponent<SpriteRenderer>().enabled = true;
+        spotRed.GetComponent<SpriteRenderer>().enabled = true;
+        spotGreen.GetComponent<SpriteRenderer>().enabled = true;
+        yield return new WaitForSeconds(.5f);
+        spotBlue.GetComponent<SpriteRenderer>().enabled = false;
+        spotYellow.GetComponent<SpriteRenderer>().enabled = false;
+        spotRed.GetComponent<SpriteRenderer>().enabled = false;
+        spotGreen.GetComponent<SpriteRenderer>().enabled = false;
+        yield return new WaitForSeconds(.5f);
+        isFailing = false;
+    }
+
 
     private IEnumerator DoSequence()
     {
