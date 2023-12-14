@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class PlayerSphereController : MonoBehaviour
 {
@@ -10,7 +11,8 @@ public class PlayerSphereController : MonoBehaviour
     private GameObject environment;
     [SerializeField] private GameObject[] spheres;
     [SerializeField] private GameObject travelButton;
-    [SerializeField] private Transform currentRotationOrigin;
+    [SerializeField] private PlayableDirector playableDirector;
+    [SerializeField] private PlayableDirector fuseDirector;
     [SerializeField]
     private int sphereIndex = 0;
     [SerializeField]
@@ -107,10 +109,9 @@ public class PlayerSphereController : MonoBehaviour
 
     IEnumerator ChangePlanet()
     {
-        _cutout.FadeIn();
+        fuseDirector.Play();
         yield return new WaitForSeconds(1);
         SetPlayerPosition();
-        _cutout.FadeOut();
     }
 
     public void OnEndIntro()
@@ -120,7 +121,7 @@ public class PlayerSphereController : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.name == "Fuse")
+        if (other.name == "Fuse" && introEnded && playerActive)
         {
             travelButton.gameObject.SetActive(true);
             canTravel = true;
