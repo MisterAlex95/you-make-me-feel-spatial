@@ -1,16 +1,17 @@
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private List<AudioClip> audioClips;
     [SerializeField] private GameObject[] spheres;
     [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private TMP_Text letterByPlanetText;
 
-    [FormerlySerializedAs("currentPlanete")] [SerializeField]
-    private int currentPlanet = 0;
+    [SerializeField] private int currentPlanet = 0;
+    [SerializeField] private List<int> letterByPlanet;
 
     private static GameManager _instance;
 
@@ -48,12 +49,21 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        spheres = GameObject.FindGameObjectsWithTag("Planet")
+        this.spheres = GameObject.FindGameObjectsWithTag("Planet")
             .OrderBy(sphere => sphere.name)
             .ToArray();
 
         this._audioSource.clip = audioClips[currentPlanet];
         this._audioSource.Play();
+        this.letterByPlanet = new List<int>(new int[this.spheres.Length]);
+
+        NewErganeDictionary.Instance.OnUnlockLetter += LootALetter;
+    }
+
+    private void LootALetter(NewErganeLetterObj obj)
+    {
+        this.letterByPlanet[this.currentPlanet]++;
+        letterByPlanetText.text = this.letterByPlanet[this.currentPlanet].ToString() + "/3";
     }
 
     public void SwitchToNextPlanet()
@@ -67,6 +77,7 @@ public class GameManager : MonoBehaviour
             currentPlanet++;
         }
 
+        letterByPlanetText.text = this.letterByPlanet[this.currentPlanet].ToString() + "/3";
         this._audioSource.Stop();
         this._audioSource.clip = audioClips[currentPlanet];
         this._audioSource.Play();
