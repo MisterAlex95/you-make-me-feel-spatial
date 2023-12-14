@@ -11,6 +11,7 @@ public class PlayerSphereController : MonoBehaviour
     [SerializeField] private GameObject[] spheres;
     [SerializeField] private GameObject travelButton;
     [SerializeField] private PlayableDirector fuseDirector;
+    [SerializeField] private PlayableDirector gameDirector;
     [SerializeField] private int sphereIndex = 0;
     [SerializeField] private CutOutUiScript _cutout;
 
@@ -117,6 +118,11 @@ public class PlayerSphereController : MonoBehaviour
     public void OnEndIntro()
     {
         introEnded = true;
+    }
+    
+    public void OnStartGame()
+    {
+        gameDirector.Play();
     }
 
     public void OnTriggerEnter2D(Collider2D other)
