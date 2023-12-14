@@ -117,6 +117,8 @@ public class SimonGame : Interactable
                 spotGreen.GetComponent<SpriteRenderer>().enabled = false;
                 spotYellow.GetComponent<SpriteRenderer>().enabled = false;
 
+                yield return new WaitForSeconds(1f);
+
                 position++;
             }
 

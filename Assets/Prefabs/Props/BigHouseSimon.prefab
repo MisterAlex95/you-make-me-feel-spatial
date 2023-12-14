@@ -257,6 +257,8 @@ MonoBehaviour:
   spotGreen: {fileID: 4003102852711322509}
   spotRed: {fileID: 6005974138704848252}
   spotYellow: {fileID: 6478600391785227821}
+  worldLetterPrefabs: {fileID: 0}
+  letterToWin: {fileID: 0}
   colorSequence: 00000000010000000200000003000000
   playerColorSequence: 
 --- !u!61 &7376800706512904590

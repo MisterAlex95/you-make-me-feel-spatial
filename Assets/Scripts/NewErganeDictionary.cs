@@ -53,7 +53,7 @@ public class NewErganeDictionary : MonoBehaviour
         if (this.IsLetterExist(letter)) return;
         this._language.Add(letter);
         OnUnlockLetter?.Invoke(letter);
-        letterCounter.text = (this._language.Count + "/22");
+        letterCounter.text = (this._language.Count + "/9");
     }
 
     public bool IsLetterExist(NewErganeLetterObj letter) => this._language.FindIndex((l) => l.letter == letter.letter) >= 0;
