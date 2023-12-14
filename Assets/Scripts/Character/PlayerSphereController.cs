@@ -14,6 +14,8 @@ public class PlayerSphereController : MonoBehaviour
     [SerializeField] private PlayableDirector gameDirector;
     [SerializeField] private int sphereIndex = 0;
     [SerializeField] private CutOutUiScript _cutout;
+    [SerializeField] private GameObject dialogs;
+    [SerializeField] private GameObject alienDialogs;
 
 
     private float _playerSpeed = 0.2f;
@@ -22,6 +24,7 @@ public class PlayerSphereController : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     private bool introEnded = false;
     private bool canTravel = false;
+    private bool canDialog = false;
 
     // Start is called before the first frame update
     void Start()
@@ -100,6 +103,14 @@ public class PlayerSphereController : MonoBehaviour
 
             StartCoroutine(ChangePlanet());
         }
+        
+        // Show dialog
+        if (Input.GetKeyDown(KeyCode.Space) && canDialog)
+        {
+            dialogs.SetActive(true);
+            alienDialogs.SetActive(true);
+            travelButton.gameObject.SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -133,6 +144,12 @@ public class PlayerSphereController : MonoBehaviour
             travelButton.gameObject.SetActive(true);
             canTravel = true;
         }
+        
+        if (other.name == "Alien" && introEnded && playerActive)
+        {
+            travelButton.gameObject.SetActive(true);
+            canDialog = true;
+        }
     }
 
     public void OnTriggerExit2D(Collider2D other)
@@ -141,6 +158,14 @@ public class PlayerSphereController : MonoBehaviour
         {
             travelButton.gameObject.SetActive(false);
             canTravel = false;
+        }
+        
+        if (other.name == "Alien" && canDialog)
+        {
+            dialogs.SetActive(false);
+            alienDialogs.SetActive(false);
+            travelButton.gameObject.SetActive(false);
+            canDialog = false;
         }
     }
 }
