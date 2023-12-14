@@ -131,15 +131,15 @@ public class SimonGame : Interactable
                         break;
                     case COLOR.BLUE:
                         spotBlue.GetComponent<SpriteRenderer>().enabled = true;
-                        spotRed.GetComponent<SimonColorGame>()?.PlaySound();
+                        spotBlue.GetComponent<SimonColorGame>()?.PlaySound();
                         break;
                     case COLOR.GREEN:
                         spotGreen.GetComponent<SpriteRenderer>().enabled = true;
-                        spotRed.GetComponent<SimonColorGame>()?.PlaySound();
+                        spotGreen.GetComponent<SimonColorGame>()?.PlaySound();
                         break;
                     case COLOR.YELLOW:
                         spotYellow.GetComponent<SpriteRenderer>().enabled = true;
-                        spotRed.GetComponent<SimonColorGame>()?.PlaySound();
+                        spotYellow.GetComponent<SimonColorGame>()?.PlaySound();
                         break;
                     default:
                         throw new ArgumentOutOfRangeException();
