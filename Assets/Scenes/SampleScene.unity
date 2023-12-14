@@ -6910,20 +6910,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 821952932}
     m_Modifications:
-    - target: {fileID: 5019564694948223206, guid: b559cbb812db9ca448fc0b7300dacced,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5966072843148604045, guid: b559cbb812db9ca448fc0b7300dacced,
         type: 3}
       propertyPath: m_Name
       value: Dictionnary
-      objectReference: {fileID: 0}
-    - target: {fileID: 6435226992906078786, guid: b559cbb812db9ca448fc0b7300dacced,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8999386750285843320, guid: b559cbb812db9ca448fc0b7300dacced,
         type: 3}
