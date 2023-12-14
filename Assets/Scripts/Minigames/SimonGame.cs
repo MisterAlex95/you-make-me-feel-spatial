@@ -18,12 +18,15 @@ public class SimonGame : Interactable
     [SerializeField] private GameObject spotRed;
     [SerializeField] private GameObject spotYellow;
 
+    [SerializeField] private GameObject worldLetterPrefabs;
+    [SerializeField] private NewErganeLetterObj letterToWin;
+
     [SerializeField] private List<COLOR> colorSequence = new();
     [SerializeField] private List<COLOR> playerColorSequence = new();
 
     private int step = 0;
     private bool started = false;
-    private int response = 0;
+    private int response = -1;
 
     private void Update()
     {
@@ -34,26 +37,58 @@ public class SimonGame : Interactable
 
         if (IsActive && started)
         {
-            response = step;
+            if (playerColorSequence.Count == step)
+            {
+                var i = 0;
+                foreach (var color in playerColorSequence)
+                {
+                    // Failed
+                    if (i <= step && color != colorSequence[i])
+                    {
+                        step = 0;
+                        response = -1;
+                        StopCoroutine(DoSequence());
+                        started = false;
+                        break;
+                    }
+
+                    i++;
+                }
+
+                // Success : Next sequence
+                playerColorSequence.Clear();
+                response = step;
+
+                if (response == colorSequence.Count)
+                {
+                    var go = Instantiate(worldLetterPrefabs, transform.parent);
+                    go.transform.position = this.transform.position;
+                    if (go.TryGetComponent<WorldLetter>(out var worldLetter))
+                    {
+                        worldLetter.SetLetter(letterToWin);
+                    }
+
+                    Destroy(this.gameObject);
+                }
+            }
         }
+    }
+
+    public void PushNewColor(COLOR color)
+    {
+        playerColorSequence.Add(color);
     }
 
     private IEnumerator DoSequence()
     {
         started = true;
-        var round = 0;
-        while (round <= colorSequence.Count)
+        while (step <= colorSequence.Count)
         {
+            yield return new WaitForSeconds(1f);
             var position = 0;
-            while (position < round)
+            while (position < step)
             {
                 var currentColor = colorSequence[position];
-
-                // Reset colors
-                spotRed.GetComponent<SpriteRenderer>().enabled = false;
-                spotBlue.GetComponent<SpriteRenderer>().enabled = false;
-                spotGreen.GetComponent<SpriteRenderer>().enabled = false;
-                spotYellow.GetComponent<SpriteRenderer>().enabled = false;
 
                 // Enabled only some colors
                 switch (currentColor)
@@ -76,15 +111,20 @@ public class SimonGame : Interactable
 
                 yield return new WaitForSeconds(1f);
 
+                // Reset colors
+                spotRed.GetComponent<SpriteRenderer>().enabled = false;
+                spotBlue.GetComponent<SpriteRenderer>().enabled = false;
+                spotGreen.GetComponent<SpriteRenderer>().enabled = false;
+                spotYellow.GetComponent<SpriteRenderer>().enabled = false;
+
                 position++;
             }
 
             yield return new WaitUntil(() => response == step);
 
-            round++;
+            step++;
         }
 
-        step++;
         started = false;
     }
 }
