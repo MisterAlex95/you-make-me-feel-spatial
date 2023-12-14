@@ -72,15 +72,15 @@ public class PlayerSphereController : MonoBehaviour
             return;
         }
 
-        var moveX = Input.GetAxis("Horizontal");
+        var moveX = Input.GetAxisRaw("Horizontal");
 
-        if (moveX < -0.5)
+        if (moveX < 0)
         {
             // Move LEFT
             _spriteRenderer.flipX = true;
             environment.transform.RotateAround(spheres[sphereIndex].transform.position, Vector3.back, _playerSpeed);
         }
-        else if (moveX > 0.5)
+        else if (moveX > 0)
         {
             // Move RIGHT
             _spriteRenderer.flipX = false;
