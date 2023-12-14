@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
 
     public void SwitchToNextPlanet()
     {
-        if (currentPlanet == spheres.Length)
+        if (currentPlanet == (spheres.Length - 1))
         {
             currentPlanet = 0;
         }
