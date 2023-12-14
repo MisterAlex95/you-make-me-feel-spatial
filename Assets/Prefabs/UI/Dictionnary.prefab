@@ -356,7 +356,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &685577081718416147
 RectTransform:
   m_ObjectHideFlags: 0
@@ -672,7 +672,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1780706993389972750
 RectTransform:
   m_ObjectHideFlags: 0
@@ -725,6 +725,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 685577081718416147}
     m_Modifications:
+    - target: {fileID: 6332596895985582558, guid: 90e145db78245de45aa8622ae7107c34,
+        type: 3}
+      propertyPath: m_Spacing.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6332596895985582558, guid: 90e145db78245de45aa8622ae7107c34,
+        type: 3}
+      propertyPath: m_Spacing.y
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6332596895985582558, guid: 90e145db78245de45aa8622ae7107c34,
+        type: 3}
+      propertyPath: m_CellSize.x
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6332596895985582558, guid: 90e145db78245de45aa8622ae7107c34,
+        type: 3}
+      propertyPath: m_CellSize.y
+      value: 75
+      objectReference: {fileID: 0}
     - target: {fileID: 6880636990491857046, guid: 90e145db78245de45aa8622ae7107c34,
         type: 3}
       propertyPath: m_Name
