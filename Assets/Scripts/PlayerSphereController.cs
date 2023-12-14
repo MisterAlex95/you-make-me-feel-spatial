@@ -15,7 +15,7 @@ public class PlayerSphereController : MonoBehaviour
     private CutOutUiScript _cutout;
 
 
-    private float _playerSpeed = 0.5f;
+    private float _playerSpeed = 0.1f;
     private Camera _camera;
     private bool playerActive = false;
 
