@@ -5,13 +5,6 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Playables;
 
-[Serializable]
-public class Inventory
-{
-    public int planetIndex;
-    public int itemsToCollect;
-    public int itemsCollected;
-}
 
 public class PlayerSphereController : MonoBehaviour
 {
@@ -20,6 +13,7 @@ public class PlayerSphereController : MonoBehaviour
     [SerializeField] private GameObject travelButton;
     [SerializeField] private PlayableDirector fuseDirector;
     [SerializeField] private PlayableDirector gameDirector;
+    [SerializeField] private PlayableDirector endDirector;
     [SerializeField] private int sphereIndex = 0;
     [SerializeField] private CutOutUiScript _cutout;
     [SerializeField] private GameObject dialogs;
@@ -33,9 +27,6 @@ public class PlayerSphereController : MonoBehaviour
     private bool introEnded = false;
     private bool canTravel = false;
     private bool canDialog = false;
-
-    public Inventory[] inventory;
-    
 
     // Start is called before the first frame update
     void Start()
@@ -123,9 +114,11 @@ public class PlayerSphereController : MonoBehaviour
         // Show dialog
         if (Input.GetKeyDown(KeyCode.Space) && canDialog)
         {
-            dialogs.SetActive(true);
-            alienDialogs.SetActive(true);
-            travelButton.gameObject.SetActive(false);
+            endDirector.Play();
+
+            // dialogs.SetActive(true);
+            // alienDialogs.SetActive(true);
+            // travelButton.gameObject.SetActive(false);
         }
     }
 
