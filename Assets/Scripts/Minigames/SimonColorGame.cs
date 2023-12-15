@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class SimonColorGame : MonoBehaviour
 {
@@ -8,10 +9,19 @@ public class SimonColorGame : MonoBehaviour
 
     private void OnMouseDown()
     {
+        
         this._simonGame.PushNewColor(color);
+        StartCoroutine(FlashSpot());
         PlaySound();
     }
 
+    private IEnumerator FlashSpot()
+    {
+        GetComponent<SpriteRenderer>().enabled = true;
+        yield return new WaitForSeconds(.2f);
+        GetComponent<SpriteRenderer>().enabled = false;
+    } 
+    
     public void PlaySound()
     {
         _audioSource.Play();

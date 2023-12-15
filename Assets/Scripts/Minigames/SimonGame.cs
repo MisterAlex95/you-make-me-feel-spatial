@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Audio;
 
 public enum COLOR
 {
@@ -35,7 +34,7 @@ public class SimonGame : Interactable
     {
         if (IsActive && !started && !isFailing)
         {
-            StartCoroutine(DoSequence());
+            StartCoroutine(nameof(DoSequence));
         }
 
         if (IsActive && started && !isFailing)
@@ -48,12 +47,8 @@ public class SimonGame : Interactable
                     // Failed
                     if (i <= step && color != colorSequence[i])
                     {
-                        step = 0;
-                        response = -1;
-                        StopCoroutine(DoSequence());
-                        StartCoroutine(DoErrorSequence());
-                        started = false;
-                        break;
+                        StartCoroutine(nameof(DoErrorSequence));
+                        return;
                     }
 
                     i++;
@@ -108,9 +103,9 @@ public class SimonGame : Interactable
         spotGreen.GetComponent<SpriteRenderer>().enabled = false;
         yield return new WaitForSeconds(.5f);
         isFailing = false;
+        this.Reset();
     }
-
-
+    
     private IEnumerator DoSequence()
     {
         started = true;
@@ -163,6 +158,30 @@ public class SimonGame : Interactable
             step++;
         }
 
+        started = false;
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        this.Reset();
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        this.Reset();
+    }
+    
+    private void Reset()
+    {
+        spotBlue.GetComponent<SpriteRenderer>().enabled = false;
+        spotYellow.GetComponent<SpriteRenderer>().enabled = false;
+        spotRed.GetComponent<SpriteRenderer>().enabled = false;
+        spotGreen.GetComponent<SpriteRenderer>().enabled = false;
+
+        step = 0;
+        response = -1;
+        playerColorSequence.Clear();
+        StopCoroutine(nameof(DoSequence));
         started = false;
     }
 }
