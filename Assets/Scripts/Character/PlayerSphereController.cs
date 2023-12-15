@@ -5,6 +5,14 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Playables;
 
+[Serializable]
+public class Inventory
+{
+    public int planetIndex;
+    public int itemsToCollect;
+    public int itemsCollected;
+}
+
 public class PlayerSphereController : MonoBehaviour
 {
     [SerializeField] private GameObject environment;
@@ -26,6 +34,9 @@ public class PlayerSphereController : MonoBehaviour
     private bool introEnded = false;
     private bool canTravel = false;
     private bool canDialog = false;
+
+    public Inventory[] inventory;
+    
 
     // Start is called before the first frame update
     void Start()
