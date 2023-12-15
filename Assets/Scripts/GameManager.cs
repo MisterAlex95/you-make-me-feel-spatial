@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject[] spheres;
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private TMP_Text letterByPlanetText;
+    [SerializeField] private List<Sprite> flagSprites;
+    [SerializeField] private Image flagSprite;
 
     [SerializeField] private int currentPlanet = 0;
     [SerializeField] private List<int> letterByPlanet;
@@ -62,20 +65,21 @@ public class GameManager : MonoBehaviour
 
     private void LootALetter(NewErganeLetterObj obj)
     {
-        this.letterByPlanet[this.currentPlanet]++;
-        letterByPlanetText.text = this.letterByPlanet[this.currentPlanet].ToString() + "/3";
+        this.letterByPlanet[this.currentPlanet] = this.letterByPlanet[this.currentPlanet] + 1;
+        letterByPlanetText.text = this.letterByPlanet[this.currentPlanet].ToString() + "/2";
     }
 
     public void SwitchToNextPlanet()
     {
         currentPlanet++;
         
-        if (currentPlanet == (spheres.Length - 1))
+        if (currentPlanet == spheres.Length)
         {
             currentPlanet = 0;
         }
 
-        letterByPlanetText.text = this.letterByPlanet[this.currentPlanet].ToString() + "/3";
+        letterByPlanetText.text = this.letterByPlanet[this.currentPlanet].ToString() + "/2";
+        flagSprite.sprite = this.flagSprites[this.currentPlanet];
         this._audioSource.Stop();
         this._audioSource.clip = audioClips[currentPlanet];
         this._audioSource.Play();
