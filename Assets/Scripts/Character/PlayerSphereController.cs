@@ -114,11 +114,16 @@ public class PlayerSphereController : MonoBehaviour
         // Show dialog
         if (Input.GetKeyDown(KeyCode.Space) && canDialog)
         {
-            endDirector.Play();
-
-            // dialogs.SetActive(true);
-            // alienDialogs.SetActive(true);
-            // travelButton.gameObject.SetActive(false);
+            if (NewErganeDictionary.Instance.GetDictionary().Count == 9)
+            {
+                endDirector.Play();
+            }
+            else
+            {
+                dialogs.SetActive(true);
+                alienDialogs.SetActive(true);
+                travelButton.gameObject.SetActive(false);
+            }
         }
     }
 

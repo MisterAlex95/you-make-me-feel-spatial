@@ -18,7 +18,6 @@ public class LetterDiscoverScript : MonoBehaviour
         var dic = NewErganeDictionary.Instance.GetDictionary();
         foreach (var newErganeLetterObj in dic)
         {
-            Debug.Log(newErganeLetterObj.letter);
             if (newErganeLetterObj.letter == letter)
             {
                 GetComponent<UnityEngine.UI.Image>().enabled = false;
