@@ -68,13 +68,11 @@ public class GameManager : MonoBehaviour
 
     public void SwitchToNextPlanet()
     {
+        currentPlanet++;
+        
         if (currentPlanet == (spheres.Length - 1))
         {
             currentPlanet = 0;
-        }
-        else
-        {
-            currentPlanet++;
         }
 
         letterByPlanetText.text = this.letterByPlanet[this.currentPlanet].ToString() + "/3";
