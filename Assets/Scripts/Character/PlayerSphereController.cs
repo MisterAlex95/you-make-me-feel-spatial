@@ -101,6 +101,7 @@ public class PlayerSphereController : MonoBehaviour
         // Switch planet
         if (Input.GetKeyDown(KeyCode.Space) && canTravel)
         {
+            canTravel = false;
             playerActive = false;
             sphereIndex++;
             if (sphereIndex == spheres.Length)
