@@ -30,7 +30,6 @@ public class PlayerSphereController : MonoBehaviour
     public float _playerSpeed = 15f;
     private Camera _camera;
     private bool playerActive = false;
-    private SpriteRenderer _spriteRenderer;
     private bool introEnded = false;
     private bool canTravel = false;
     private bool canDialog = false;
