@@ -22,6 +22,7 @@ public class PlayerSphereController : MonoBehaviour
     public float _playerSpeed = 15f;
     private Camera _camera;
     private bool playerActive = false;
+    private SpriteRenderer _spriteRenderer;
     private bool introEnded = false;
     private bool canTravel = false;
     private bool canDialog = false;
@@ -33,6 +34,7 @@ public class PlayerSphereController : MonoBehaviour
         spheres = GameObject.FindGameObjectsWithTag("Planet")
             .OrderBy(sphere => sphere.name)
             .ToArray();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
 
         SetPlayerPosition();
     }
@@ -80,20 +82,14 @@ public class PlayerSphereController : MonoBehaviour
         if (moveX < 0)
         {
             // Move LEFT
-            _animator.SetBool("Walking", true);
             _spriteRenderer.flipX = true;
             environment.transform.RotateAround(spheres[sphereIndex].transform.position, Vector3.back, _playerSpeed * Time.deltaTime);
         }
         else if (moveX > 0)
         {
             // Move RIGHT
-            _animator.SetBool("Walking", true);
             _spriteRenderer.flipX = false;
             environment.transform.RotateAround(spheres[sphereIndex].transform.position, Vector3.forward, _playerSpeed * Time.deltaTime);
-        }
-        else
-        {
-            _animator.SetBool("Walking", false);
         }
 
         // Switch planet
