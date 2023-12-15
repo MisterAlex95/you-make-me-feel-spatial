@@ -114,7 +114,7 @@ public class PlayerSphereController : MonoBehaviour
         // Show dialog
         if (Input.GetKeyDown(KeyCode.Space) && canDialog)
         {
-            if (NewErganeDictionary.Instance.GetDictionary().Count >= 9)
+            if (NewErganeDictionary.Instance.GetDictionary().Count >= 10)
             {
                 endDirector.Play();
             }
