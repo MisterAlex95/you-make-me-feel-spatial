@@ -8,6 +8,8 @@ public class PlanetPopulate : MonoBehaviour
     [SerializeField] private GameObject populateItem;
 
     public bool populateCloud = true;
+    public int itemsToCollect = 2;
+    public int itemsCollected = 0;
 
     // Start is called before the first frame update
     void Start()
