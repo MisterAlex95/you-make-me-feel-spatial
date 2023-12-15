@@ -20014,6 +20014,11 @@ PrefabInstance:
       propertyPath: m_PresetInfoIsWorld
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3552384011603367683, guid: b559cbb812db9ca448fc0b7300dacced,
+        type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: 1fc3b5bd7ad9b104483b27ecd79702ec, type: 3}
     - target: {fileID: 3588982384744150592, guid: b559cbb812db9ca448fc0b7300dacced,
         type: 3}
       propertyPath: m_SizeDelta.x

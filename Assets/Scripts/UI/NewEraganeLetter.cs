@@ -22,6 +22,7 @@ namespace UI
 
         public void OnPointerClick(PointerEventData eventData)
         {
+            HoverAsset.SetActive(false);
             _newErganeCodexPage.GoToLetter(this.letter);
         }
 
